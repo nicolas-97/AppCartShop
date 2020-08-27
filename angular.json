@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "car-shop": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "car-shop"
+    }
+  },
+  "defaultProject": "car-shop",
+  "cli": {
+    "analytics": "48ecd3ef-251e-46d5-9600-078f76b8a05d"
+  }
 }
