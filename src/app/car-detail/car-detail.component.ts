@@ -13,7 +13,7 @@ export class CarDetailComponent implements OnInit {
 
   idCartd:any=0;
   listCart:any={};
-  constructor(private countServices:OcountCartService, private cartDetailServices:CartDetailService, private productCart:ProductCartService, private cartServices:CartService) { }
+  constructor(private countServices:OcountCartService, private cartDetailServices:CartDetailService, private productCart:ProductCartService, private cartServices:CartService, private OcountCartService:OcountCartService) { }
 
   ngOnInit(): void {
     this.countServices.getCartid().subscribe(res=>{
@@ -21,11 +21,23 @@ export class CarDetailComponent implements OnInit {
       if(this.idCartd!=0){
         this.cartDetailServices.updateListCart(this.idCartd);
       }
+      this.OcountCartService.getCartid().subscribe(res=>{
+        console.log("Aqui res "+res);
+        if(res==0){
+          this.idCartd=0;
+        }
+      })
     });
 
-    this.cartDetailServices.getListCart().subscribe(res=>{
-      this.listCart=res;
-    })
+    try{
+      this.cartDetailServices.getListCart().subscribe(res=>{
+        console.log("aqui llego")
+        this.listCart=res;
+      })
+    }catch(e){
+      console.log(e)
+    }
+    
   }
 
   delete(idProduct){
@@ -53,8 +65,8 @@ export class CarDetailComponent implements OnInit {
 
   submit(){
     this.cartServices.checkCart(this.idCartd).subscribe(res=>{
-      console.log(res);
-      this.countServices.updateCountCart();
+      this.cartDetailServices.updateListCart(0);
+      this.countServices.updateSucces();
     });
   }
 

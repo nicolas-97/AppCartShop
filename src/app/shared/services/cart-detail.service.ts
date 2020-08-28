@@ -14,9 +14,13 @@ export class CartDetailService {
   constructor(private cartServices: CartService) { }
 
   updateListCart(idCart){
-    this.cartServices.getId(idCart).subscribe(res=>{
-      this.listProducCart$.next(res);
-    })
+    if(idCart==0){
+      this.listProducCart$.next({});
+    }else{
+      this.cartServices.getId(idCart).subscribe(res=>{
+        this.listProducCart$.next(res);
+      }) 
+    }
   }
 
   getListCart():Observable<any>{

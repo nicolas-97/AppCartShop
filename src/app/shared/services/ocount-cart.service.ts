@@ -15,6 +15,7 @@ export class OcountCartService {
 
   updateCountCart(){
     try{
+      console.log("sas")
       this.cartServices.getAll().subscribe(cart=>{
         console.log(cart);
         this.cartId$.next(cart[0].id);
@@ -24,6 +25,11 @@ export class OcountCartService {
       this.cartId$.next(0);
       this.countProductCart$.next(0);
     }
+  }
+
+  updateSucces(){
+    this.cartId$.next(0);
+      this.countProductCart$.next(0);
   }
 
   getCartid():Observable<Number>{

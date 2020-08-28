@@ -27,6 +27,12 @@ export class ListProductsComponent implements OnInit {
         this.idCart=res;
       }
     })
+    this.ocountServices.getCartid().subscribe(res=>{
+      console.log("Aqui res "+res);
+      if(res==0){
+        this.idCart=null;
+      }
+    })
   }
 
   loadProducts(){
@@ -36,7 +42,7 @@ export class ListProductsComponent implements OnInit {
   }
 
   addProductToCart(id){
-    console.log(this.idCart);
+    
     let data = {
       "cart_id": this.idCart,
       "product_id": id,
