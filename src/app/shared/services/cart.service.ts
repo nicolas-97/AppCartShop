@@ -17,7 +17,13 @@ export class CartService {
     return this.http.get(`${this.apiUrl}`);
   }
 
+  getId(id):Observable<any>{
+    return this.http.get(`${this.apiUrl+id}`);
+  }
+
   checkCart(idCart):Observable<any>{
     return this.http.put(this.apiUrl+idCart,this.headers);
   }
+
+
 }
