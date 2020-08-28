@@ -1,0 +1,20 @@
+.row-f{
+    display: flex; 
+    flex-direction: row;
+}
+
+.f-s-13{
+    font-size: 13px;
+}
+
+.btn-violet{
+    color: white;
+    background-color: #6620B0;
+    border-color: #6620B0;
+}
+
+.btn-violet:hover{
+    color: white;
+    background-color: #8D5DC0;
+    border-color: #8D5DC0;
+}
