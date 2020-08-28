@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ListProductsComponent } from './list-products/list-products.component';
 import { CarDetailComponent } from './car-detail/car-detail.component';
+import { ProductService } from './shared/services/product.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,10 @@ import { CarDetailComponent } from './car-detail/car-detail.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ProductService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

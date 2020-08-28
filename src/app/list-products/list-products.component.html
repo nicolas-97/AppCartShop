@@ -1,1 +1,15 @@
-<p>list-products works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6" *ngFor="let product of products">
+            <div class="card" style="width: 18rem;">
+                <img src="https://i.pinimg.com/564x/1a/30/ba/1a30bafc0af4e1000c49f63170645926.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{product.name}}</h5>
+                  <p class="card-text">{{product.description}}</p>
+                  <button class="btn btn-primary">Agregar al carrito</button>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
