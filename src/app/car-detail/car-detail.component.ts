@@ -3,6 +3,7 @@ import { OcountCartService } from '../shared/services/ocount-cart.service';
 import { CartDetailService } from '../shared/services/cart-detail.service';
 import { ProductCartService } from '../shared/services/product-cart.service';
 import { CartService } from '../shared/services/cart.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-car-detail',
@@ -13,7 +14,7 @@ export class CarDetailComponent implements OnInit {
 
   idCartd:any=0;
   listCart:any={};
-  constructor(private countServices:OcountCartService, private cartDetailServices:CartDetailService, private productCart:ProductCartService, private cartServices:CartService, private OcountCartService:OcountCartService) { }
+  constructor(private _snackBar: MatSnackBar,private countServices:OcountCartService, private cartDetailServices:CartDetailService, private productCart:ProductCartService, private cartServices:CartService, private OcountCartService:OcountCartService) { }
 
   ngOnInit(): void {
     this.countServices.getCartid().subscribe(res=>{
@@ -67,8 +68,14 @@ export class CarDetailComponent implements OnInit {
     this.cartServices.checkCart(this.idCartd).subscribe(res=>{
       this.cartDetailServices.updateListCart(0);
       this.countServices.updateSucces();
+      this.openSnackBar("¡Felicidades!","Se ha realizado tu compra");
     });
   }
 
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
 
 }
