@@ -5,13 +5,16 @@
                 <img src="https://i.pinimg.com/564x/1a/30/ba/1a30bafc0af4e1000c49f63170645926.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{product.name}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{product.sku}}</h6>
                   <p class="card-text">{{product.description}}</p>
-                  <button class="btn btn-violet btn-sm f-s-13 row-f">
-                            <span class="material-icons" style="font-size: 19px;">
-                                add_shopping_cart
-                            </span>
-                            <div>Agregar al carrito</div>
+                  <div style="width: 100%; text-align: right !important;">
+                    <button class="btn btn-violet btn-sm f-s-13 row-f">
+                        <span class="material-icons" style="font-size: 19px;">
+                            add_shopping_cart
+                        </span>
+                        <div>Agregar al carrito</div>
                     </button>
+                  </div>
                 </div>
               </div>
         </div>
