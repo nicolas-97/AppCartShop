@@ -12,11 +12,12 @@ export class HeaderComponent implements OnInit {
   constructor(private ocountServices:OcountCartService) { }
 
   count$:Observable<Number>; 
+  count:any=0;
 
   ngOnInit(): void {
     this.count$=this.ocountServices.getCount();
     this.count$.subscribe(count=>{
-      console.log(count);
+      this.count=count;
     });
   }
 
