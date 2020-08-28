@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OcountCartService } from '../shared/services/ocount-cart.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ocountServices:OcountCartService) { }
+
+  count$:Observable<Number>; 
 
   ngOnInit(): void {
+    this.count$=this.ocountServices.getCount();
+    this.count$.subscribe(count=>{
+      console.log(count);
+    });
   }
 
 }

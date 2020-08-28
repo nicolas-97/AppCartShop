@@ -15,9 +15,7 @@ export class OcountCartService {
   updateCountCart(){
     try{
       this.cartServices.getAll().subscribe(cart=>{
-        this.cartServices.getId(cart.id).subscribe(res=>{
-          this.countProductCart$.next(res.length)
-        })
+        this.countProductCart$.next(cart.length)
       })
     }catch(e){
       this.countProductCart$.next(0);

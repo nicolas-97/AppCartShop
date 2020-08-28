@@ -8,7 +8,7 @@
                   <h6 class="card-subtitle mb-2 text-muted">{{product.sku}}</h6>
                   <p class="card-text">{{product.description}}</p>
                   <div style="width: 100%; text-align: right !important;">
-                    <button class="btn btn-violet btn-sm f-s-13 row-f">
+                    <button class="btn btn-violet btn-sm f-s-13 row-f" (click)="addProductToCart(product.id)">
                         <span class="material-icons" style="font-size: 19px;">
                             add_shopping_cart
                         </span>
