@@ -10,12 +10,14 @@ import { OcountCartService } from '../shared/services/ocount-cart.service';
 })
 export class ListProductsComponent implements OnInit {
 
+  idCart:any=null;
   products:any={};
 
 
   constructor(private productServices:ProductService, private productCartServices:ProductCartService, private ocountServices:OcountCartService) { }
 
   ngOnInit(): void {
+    this.ocountServices.updateCountCart();
     this.loadProducts();
   }
 
@@ -26,13 +28,18 @@ export class ListProductsComponent implements OnInit {
   }
 
   addProductToCart(id){
+    console.log(this.idCart);
     let data = {
-      "cart_id": null,
+      "cart_id": this.idCart,
       "product_id": id,
       "quantity": 1
     }
+
+    console.log(data);
     this.productCartServices.post(data).subscribe(res=>{
-      console.log(res);
+      if(this.idCart==null){
+        this.idCart=res.id;
+      }
       this.ocountServices.updateCountCart();
     })
   }
