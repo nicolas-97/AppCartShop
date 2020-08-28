@@ -22,7 +22,7 @@ export class ProductCartService {
   }
 
   put(dataProduct){
-    return this.http.put(`${this.apiUrl}`,dataProduct)
+    return this.http.put(`${this.apiUrl+'1'}`,dataProduct)
   }
 
   delete(idProduct){

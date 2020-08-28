@@ -1,13 +1,13 @@
 <div class="container">
-    <div class="row" *ngFor="let product of listCart">
+    <div class="row" *ngFor="let product of listCart; let i = index">
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
                 {{product.name}}
             </div>
             <div class="col-xl-2 col-lg-2 col-md-6 col-sm-2 col-2">
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="{{product.quantity}}">
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="listCart[i].quantity">
             </div>
             <div class="col-xl-2 col-lg-2 col-md-6 col-sm-2  col-2">
-                <button class="transparent"><mat-icon class="config-check">check</mat-icon></button>
+                <button class="transparent"><mat-icon class="config-check" (click)="updateProduct(listCart[i])">check</mat-icon></button>
                 
             </div>
             <div class="col-xl-2 col-lg-2 col-md-6 col-sm-2  col-2">
@@ -17,7 +17,7 @@
 
     <div class="row" style="margin-top: 30px;">
         <div style="margin-left: 200%;">
-            <button type="button" class="btn btn-success">Confirmar</button>
+            <button type="button" class="btn btn-success" (click)="submit()">Confirmar</button>
         </div>
     </div>
 </div>
