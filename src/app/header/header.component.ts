@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
 
   count$:Observable<Number>; 
   count:any=0;
+  isCartView:boolean=false;
 
   ngOnInit(): void {
     this.count$=this.ocountServices.getCount();
@@ -20,5 +21,10 @@ export class HeaderComponent implements OnInit {
       this.count=count;
     });
   }
+
+  showCart(){
+    this.isCartView = !this.isCartView;
+  }
+
 
 }

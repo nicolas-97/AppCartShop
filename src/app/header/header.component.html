@@ -8,8 +8,11 @@
     </div>
 
     <div style="margin-left: 70%;">
-        <button class="transparent"><mat-icon matBadge="{{count}}" class="config-car">
+        <button class="transparent" (click)="showCart()"><mat-icon matBadge="{{count}}" class="config-car">
             shopping_cart
         </mat-icon></button>
+    </div>
+    <div style="width: 460px;" class="card cart-de" [hidden]="!isCartView">
+        <app-car-detail></app-car-detail>
     </div>
   </nav>

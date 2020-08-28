@@ -6,7 +6,18 @@
             <div class="col-xl-2 col-lg-2 col-md-6 col-sm-2 col-2">
                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="{{product.quantity}}">
             </div>
-            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-2  col-2"></div>
-            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-2  col-2"></div>
+            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-2  col-2">
+                <button class="transparent"><mat-icon class="config-check">check</mat-icon></button>
+                
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-2  col-2">
+                <button class="transparent" (click)="delete(product.id)"><mat-icon class="config-car-remove">remove_shopping_cart</mat-icon></button>
+            </div>
+    </div>
+
+    <div class="row" style="margin-top: 30px;">
+        <div style="margin-left: 200%;">
+            <button type="button" class="btn btn-success">Confirmar</button>
+        </div>
     </div>
 </div>

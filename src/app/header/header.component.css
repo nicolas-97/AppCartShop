@@ -6,3 +6,15 @@
     background-color: transparent;
     border-color: transparent;
 }
+
+
+.cart-de{
+    box-shadow: 10px 5px 5px #BAB5BE;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 460px;
+    z-index: 99;
+    position: absolute;
+    top: 58px;
+    right: 21px;
+}
