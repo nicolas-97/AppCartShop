@@ -1,1 +1,12 @@
-<p>car-detail works!</p>
+<div class="container">
+    <div class="row" *ngFor="let product of listCart">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                {{product.name}}
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-2 col-2">
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="{{product.quantity}}">
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-2  col-2"></div>
+            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-2  col-2"></div>
+    </div>
+</div>

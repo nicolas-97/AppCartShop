@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OcountCartService } from '../shared/services/ocount-cart.service';
+import { CartDetailService } from '../shared/services/cart-detail.service';
 
 @Component({
   selector: 'app-car-detail',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarDetailComponent implements OnInit {
 
-  constructor() { }
+  idCartd:any=0;
+  listCart:any={};
+  constructor(private countServices:OcountCartService, private cartDetailServices:CartDetailService) { }
 
   ngOnInit(): void {
+    this.countServices.getCartid().subscribe(res=>{
+      this.idCartd=res;
+      if(this.idCartd!=0){
+        this.cartDetailServices.updateListCart(this.idCartd);
+      }
+    });
+
+    this.cartDetailServices.getListCart().subscribe(res=>{
+      this.listCart=res;
+      console.log(res)
+    })
   }
 
 }

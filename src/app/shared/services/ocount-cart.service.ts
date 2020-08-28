@@ -26,7 +26,7 @@ export class OcountCartService {
     }
   }
 
-  getCartid(){
+  getCartid():Observable<Number>{
     return this.cartId$.asObservable();
   }
   getCount():Observable<Number>{

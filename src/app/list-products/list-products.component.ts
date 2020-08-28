@@ -10,8 +10,11 @@ import { OcountCartService } from '../shared/services/ocount-cart.service';
 })
 export class ListProductsComponent implements OnInit {
 
+  detailCart:any={};
   idCart:any=null;
   products:any={};
+  
+
 
 
   constructor(private productServices:ProductService, private productCartServices:ProductCartService, private ocountServices:OcountCartService) { }
@@ -42,8 +45,9 @@ export class ListProductsComponent implements OnInit {
 
     console.log(data);
     this.productCartServices.post(data).subscribe(res=>{
+      this.detailCart=res;
       if(this.idCart==null){
-        this.idCart=res.id;
+        this.idCart=this.detailCart.id;
       }
       this.ocountServices.updateCountCart();
     })
