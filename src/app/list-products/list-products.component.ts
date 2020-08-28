@@ -19,6 +19,11 @@ export class ListProductsComponent implements OnInit {
   ngOnInit(): void {
     this.ocountServices.updateCountCart();
     this.loadProducts();
+    this.ocountServices.getCartid().subscribe(res=>{
+      if(res!=0){
+        this.idCart=res;
+      }
+    })
   }
 
   loadProducts(){
